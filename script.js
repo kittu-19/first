@@ -1,90 +1,30 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #fff0f5;
-  text-align: center;
-  margin: 0;
-  padding: 20px;
+function checkAnswer() {
+  const answer = document.getElementById("riddleAnswer").value.trim().toLowerCase();
+  const feedback = document.getElementById("riddleFeedback");
+
+  if (answer === "echo") {
+    feedback.style.color = "green";
+    feedback.textContent = "Correct! Unlocking your surprise... 💖";
+    setTimeout(() => {
+      document.getElementById("puzzleSection").classList.add("hidden");
+      document.getElementById("mainContent").classList.remove("hidden");
+    }, 2000);
+  } else {
+    feedback.style.color = "red";
+    feedback.textContent = "Hmm... not quite. Try again!";
+  }
 }
 
-.container {
-  max-width: 600px;
-  margin: auto;
-  padding: 40px;
-  background: #ffe4ec;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.6s ease-in-out;
-}
+document.getElementById("yesButton").onclick = () => {
+  document.getElementById("resultContent").innerHTML = "<h2>Yay! 💍 I love you, Kittu! ❤️</h2>";
+  document.getElementById("mainContent").classList.add("hidden");
+  document.getElementById("resultContent").classList.remove("hidden");
+};
 
-h1, h2 {
-  color: #e91e63;
-}
+document.getElementById("noButton").onclick = () => {
+  document.getElementById("resultContent").innerHTML = "<h2>Oh no 😢 but I’ll still love you forever!</h2>";
+  document.getElementById("mainContent").classList.add("hidden");
+  document.getElementById("resultContent").classList.remove("hidden");
+};
 
-.name {
-  color: #ff1493;
-  font-weight: bold;
-}
-
-.message, .riddle, .question, .feedback {
-  font-size: 1.1rem;
-  margin-top: 20px;
-}
-
-blockquote.poetry {
-  font-style: italic;
-  color: #555;
-  margin: 30px 0;
-}
-
-input[type="text"] {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  width: 80%;
-  font-size: 1rem;
-}
-
-button {
-  background: #ff69b4;
-  color: white;
-  padding: 10px 20px;
-  margin-top: 15px;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.3s;
-}
-
-button:hover {
-  background: #ff1493;
-}
-
-.hidden {
-  display: none;
-}
-
-.heart-rain {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.heart-rain::before {
-  content: "❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️";
-  font-size: 30px;
-  animation: rain 3s linear infinite;
-  position: absolute;
-  width: 100%;
-  text-align: center;
-}
-
-@keyframes rain {
-  0% { transform: translateY(-100px); }
-  100% { transform: translateY(100vh); }
-}
 
