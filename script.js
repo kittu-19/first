@@ -1,45 +1,90 @@
-// JavaScript for interactive buttons
-
-const yesButton = document.getElementById('yesButton');
-const noButton = document.getElementById('noButton');
-const mainContent = document.getElementById('mainContent');
-const resultContent = document.getElementById('resultContent');
-
-// Function to create confetti animation
-function createConfetti() {
-  for (let i = 0; i < 100; i++) {
-    const confetti = document.createElement('div');
-    confetti.classList.add('confetti');
-    confetti.style.left = Math.random() * 100 + 'vw';
-    confetti.style.backgroundColor =
-      '#' + Math.floor(Math.random() * 16777215).toString(16);
-    confetti.style.animationDelay = Math.random() * 2 + 's';
-    document.body.appendChild(confetti);
-
-    // Remove confetti after the animation ends
-    setTimeout(() => {
-      confetti.remove();
-    }, 2000);
-  }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff0f5;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
 }
 
-// Handle "Yes" button click
-yesButton.addEventListener('click', () => {
-  mainContent.classList.add('hidden');
-  resultContent.innerHTML = `
-    <h1>Yay! 🎉 She said YES! 💍</h1>
-    <p>I'm the happiest person in the world right now. Thank you for saying yes! Let's start our forever together. 💖</p>
-  `;
-  resultContent.classList.remove('hidden');
-  createConfetti();
-});
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 40px;
+  background: #ffe4ec;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.6s ease-in-out;
+}
 
-// Handle "No" button click
-noButton.addEventListener('click', () => {
-  mainContent.classList.add('hidden');
-  resultContent.innerHTML = `
-    <h1>Oh no! 😢</h1>
-    <p>It breaks my heart, but I will always cherish the time we have shared. 💔</p>
-  `;
-  resultContent.classList.remove('hidden');
-});
+h1, h2 {
+  color: #e91e63;
+}
+
+.name {
+  color: #ff1493;
+  font-weight: bold;
+}
+
+.message, .riddle, .question, .feedback {
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+
+blockquote.poetry {
+  font-style: italic;
+  color: #555;
+  margin: 30px 0;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 80%;
+  font-size: 1rem;
+}
+
+button {
+  background: #ff69b4;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #ff1493;
+}
+
+.hidden {
+  display: none;
+}
+
+.heart-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heart-rain::before {
+  content: "❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️";
+  font-size: 30px;
+  animation: rain 3s linear infinite;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+@keyframes rain {
+  0% { transform: translateY(-100px); }
+  100% { transform: translateY(100vh); }
+}
+
