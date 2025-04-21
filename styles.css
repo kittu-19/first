@@ -1,6 +1,8 @@
+/* Dark Theme Styles */
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #fff0f5;
+  background: #1a1a1a; /* Dark background */
+  color: #f0f0f0; /* Light text color */
   text-align: center;
   margin: 0;
   padding: 20px;
@@ -10,42 +12,49 @@ body {
   max-width: 600px;
   margin: auto;
   padding: 40px;
-  background: #ffe4ec;
+  background: #252525; /* Darker container background */
   border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
   transition: all 0.6s ease-in-out;
 }
 
 h1, h2 {
-  color: #e91e63;
+  color: #ff69b4; /* Bright pink for headings */
 }
 
 .name {
-  color: #ff1493;
+  color: #ff1493; /* Deep pink for name highlights */
   font-weight: bold;
 }
 
 .message, .riddle, .question, .feedback {
   font-size: 1.1rem;
   margin-top: 20px;
+  color: #cccccc; /* Softer gray for text */
 }
 
 blockquote.poetry {
   font-style: italic;
-  color: #555;
+  color: #bbbbbb; /* Subtle gray for poetry */
   margin: 30px 0;
 }
 
 input[type="text"] {
   padding: 10px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #444; /* Subtle border for input */
+  background: #1a1a1a; /* Dark input background */
+  color: #f0f0f0; /* Light text color */
   width: 80%;
   font-size: 1rem;
 }
 
+input[type="text"]::placeholder {
+  color: #777; /* Placeholder color */
+}
+
 button {
-  background: #ff69b4;
+  background: #ff69b4; /* Bright pink buttons */
   color: white;
   padding: 10px 20px;
   margin-top: 15px;
@@ -57,7 +66,7 @@ button {
 }
 
 button:hover {
-  background: #ff1493;
+  background: #ff1493; /* Darker pink on hover */
 }
 
 .hidden {
@@ -81,9 +90,60 @@ button:hover {
   position: absolute;
   width: 100%;
   text-align: center;
+  color: #ff1493; /* Pink hearts */
 }
 
 @keyframes rain {
   0% { transform: translateY(-100px); }
   100% { transform: translateY(100vh); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 30px;
+    margin: 20px;
+  }
+
+  h1, h2 {
+    font-size: 1.8rem;
+  }
+
+  .message, .riddle, .question, .feedback {
+    font-size: 1rem;
+  }
+
+  input[type="text"] {
+    width: 90%;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+
+  .message, .riddle, .question, .feedback {
+    font-size: 0.9rem;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  button {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
 }
