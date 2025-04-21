@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Will You Marry Me?</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="container" id="mainContent">
+  <div class="container" id="puzzleSection">
+    <h2>Hello, <span class="name">Kittu</span> ❤️</h2>
+    <p class="message">Before I ask you something special, solve this puzzle:</p>
+    <p class="riddle">🔐 I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?</p>
+    <input type="text" id="riddleAnswer" placeholder="Your Answer..." />
+    <button onclick="checkAnswer()">Unlock 💌</button>
+    <p id="riddleFeedback" class="feedback"></p>
+  </div>
+
+  <div class="container hidden" id="mainContent">
     <h1>Will You Marry Me, <span class="name">Kittu</span>? 💍</h1>
-    <div class="heart-container">
-      <span class="heart">❤️</span>
-    </div>
-    <p class="message">You make my world brighter, my heart fuller, and my life better. I can't imagine a future without you in it. So here I am, asking you the most important question of my life.</p>
+    <div class="heart-rain"></div>
+    <p class="message">You make my world brighter, my heart fuller, and my life better.</p>
     <blockquote class="poetry">
       "Adrift I am floating,  
       I became the master of my fate,  
@@ -25,7 +32,9 @@
       <button id="noButton">No 🙁</button>
     </div>
   </div>
+
   <div id="resultContent" class="hidden"></div>
   <script src="script.js"></script>
 </body>
 </html>
+
